@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "ai-impact-visualization-be"
+version = "0.1.0"
+description = ""
+authors = ["Xvalentavr <iwilly17@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = {extras = ["standard"], version = "^0.115.11"}
+loguru = "^0.7.3"
+pydantic-settings = "^2.8.1"
+sqlalchemy = {extras = ["asyncio"], version = "^2.0.39"}
+asyncpg = "^0.30.0"
+alembic = "^1.15.1"
+typer = "^0.15.2"
+
+[tool.poetry.group.dev.dependencies]
+black = "^25.1.0"
+flake8 = "^7.1.2"
+isort = "^6.0.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
