@@ -24,7 +24,7 @@ class Base(AsyncAttrs, DeclarativeBase):
     )
 
 
-async def get_async_session() -> AsyncGenerator[AsyncSession, None, None]:
+async def get_async_session() -> AsyncGenerator[AsyncSession, None]:
     async with async_session_maker() as session:
         yield session
 

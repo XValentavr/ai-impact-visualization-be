@@ -13,7 +13,7 @@ class ServerSettings(BaseModel):
     )
     # move outside the app directory to avoid infinite loop
     LOG_FILE_PATH: str = Field(default="./logs/application.log")
-    DATA_DIR: str = Field(default="./data")
+    DATA_DIR: str = Field(default="./app/data")
 
     @property
     def data_dir_path(self) -> Path:
@@ -33,8 +33,8 @@ class PostgresSettings(BaseModel):
 
 
 class Settings(BaseSettings):
-    server: ServerSettings
-    postgres: PostgresSettings
+    server: ServerSettings = ServerSettings()
+    postgres: PostgresSettings = PostgresSettings()
 
     model_config = SettingsConfigDict(
         env_nested_delimiter="__",

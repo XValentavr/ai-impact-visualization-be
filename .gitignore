@@ -174,5 +174,5 @@ cython_debug/
 .pypirc
 
 # csv data
-data/
+app/data/
 

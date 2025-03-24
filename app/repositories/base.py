@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+from typing import Type
 
 from sqlalchemy import delete, insert, select, update
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -33,17 +34,14 @@ class SQLAlchemyRepository(AbstractRepository):
         return res.scalar_one()
 
     async def list(self) -> list:
-        stmt = select(self.model)
-        res = await self.session.execute(stmt)
+        res = await self.session.execute(select(self.model))
         return res.scalars().all()  # noqa
 
-    async def get_by(self, **filter_by: dict) -> dict:
-        stmt = select(self.model).filter_by(**filter_by)
-        res = await self.session.execute(stmt)
-        return res.scalar_one().to_read_model()
+    async def get_by(self, **filter_by: dict) -> Type["model"]:  # noqa
+        res = await self.session.execute(select(self.model).filter_by(**filter_by))
+        return res.scalar_one()
 
     async def delete(self, id_: int) -> bool:
-        stmt = delete(self.model).filter_by(id=id_)
-        await self.session.execute(stmt)
+        await self.session.execute(delete(self.model).filter_by(id=id_))
         await self.session.commit()
         return True
