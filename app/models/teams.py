@@ -10,4 +10,4 @@ class Team(Base):
     id: Mapped[int] = mapped_column(primary_key=True)
     name: Mapped[str] = mapped_column(String(255))
 
-    engineers: Mapped[list["Engineer"]] = relationship(back_populates="team")
+    engineers: Mapped[list["Engineer"]] = relationship(back_populates="team")  # noqa

@@ -11,7 +11,7 @@ from app.models.jira_issues import Categories
 JIRA_ISSUES_CSV = settings.server.data_dir_path / "jira_issues.csv"
 
 
-async def _add_jira_issues()-> None:
+async def _add_jira_issues() -> None:
     with open(JIRA_ISSUES_CSV, "r") as f:
         reader = csv.DictReader(f)
 

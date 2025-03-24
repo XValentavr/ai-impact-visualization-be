@@ -14,5 +14,5 @@ class Repository(Base):
         ForeignKey("projects.id", ondelete="CASCADE"), index=True
     )
 
-    commits: Mapped[list["Commit"]] = relationship(back_populates="repository")
-    project: Mapped["Project"] = relationship(back_populates="repositories")
+    commits: Mapped[list["Commit"]] = relationship(back_populates="repository")  # noqa
+    project: Mapped["Project"] = relationship(back_populates="repositories")  # noqa

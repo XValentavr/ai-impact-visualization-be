@@ -9,7 +9,7 @@ from app.models import Project, Repository
 REPOSITORIES_CSV = settings.server.data_dir_path / "repositories.csv"
 
 
-async def _add_repositories()-> None:
+async def _add_repositories() -> None:
     with open(REPOSITORIES_CSV, "r") as f:
         reader = csv.DictReader(f)
 

@@ -24,7 +24,6 @@ async def _add_teams() -> None:
                 engineers_ids = row["engineer_ids"].split(",")
                 row["engineer_ids"] = [int(id_) for id_ in engineers_ids]
                 for engineer_id in row["engineer_ids"]:
-
                     engineer = await session.get(Engineer, engineer_id)
                     if engineer is None:
                         typer.secho(

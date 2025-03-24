@@ -4,7 +4,7 @@ from app.schemas.teams import TeamListSchema, TeamSchema
 
 
 class TeamService:
-    def __init__(self, session:SessionDep) -> None:
+    def __init__(self, session: SessionDep) -> None:
         self.repo = TeamRepository(session)
 
     async def get_all(self) -> TeamListSchema:

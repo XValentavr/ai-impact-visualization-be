@@ -4,7 +4,7 @@ from app.schemas.jira_issues import IssueMetrics, ListIssueMetrics
 
 
 class JiraIssueService:
-    def __init__(self, session:SessionDep) -> None:
+    def __init__(self, session: SessionDep) -> None:
         self.repo = JiraIssueRepository(session)
 
     async def get_issues_stats_by_project(

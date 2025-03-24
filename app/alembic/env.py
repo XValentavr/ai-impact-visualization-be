@@ -17,7 +17,7 @@ if config.config_file_name is not None:
 
 # add your model's MetaData object here
 # for 'autogenerate' support
-from app.db.db import Base
+from app.db.db import Base  # noqa
 
 target_metadata = Base.metadata
 
@@ -27,7 +27,7 @@ target_metadata = Base.metadata
 # ... etc.
 
 from app import models  # noqa
-from app.config.settings import settings
+from app.config.settings import settings  # noqa
 
 config.set_main_option("sqlalchemy.url", settings.postgres.url)
 

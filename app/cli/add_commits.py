@@ -58,4 +58,4 @@ async def _add_commits() -> None:
                 session.add_all(commits_buffer)
                 await session.commit()
 
-    typer.secho(f"Inserted all commits", fg=typer.colors.GREEN)
+    typer.secho("Inserted all commits", fg=typer.colors.GREEN)

@@ -8,7 +8,7 @@ class JiraIssueRepository(SQLAlchemyRepository):
     model = JiraIssue
 
     async def get_issues_stats_by_project(
-            self, project_id: int | None, team_id: int | None, engineer_id: int | None
+        self, project_id: int | None, team_id: int | None, engineer_id: int | None
     ) -> list:
         commit_stats_query = select(
             Commit.jira_issue_id,

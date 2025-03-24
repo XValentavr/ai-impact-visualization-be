@@ -26,10 +26,10 @@ class Commit(Base):
         ForeignKey("repositories.id", ondelete="CASCADE")
     )
 
-    engineer: Mapped["Engineer"] = relationship("Engineer", back_populates="commits")
-    jira_issue: Mapped["JiraIssue"] = relationship(
+    engineer: Mapped["Engineer"] = relationship("Engineer", back_populates="commits")  # noqa
+    jira_issue: Mapped["JiraIssue"] = relationship(  # noqa
         "JiraIssue", back_populates="commits"
     )
-    repository: Mapped["Repository"] = relationship(
+    repository: Mapped["Repository"] = relationship(  # noqa
         "Repository", back_populates="commits"
     )

@@ -15,6 +15,6 @@ class Engineer(Base):
         ForeignKey("teams.id", ondelete="CASCADE"), index=True
     )
 
-    commits: Mapped[list["Commit"]] = relationship(back_populates="engineer")
-    jira_issues: Mapped[list["JiraIssue"]] = relationship(back_populates="engineer")
-    team: Mapped["Team"] = relationship(back_populates="engineers")
+    commits: Mapped[list["Commit"]] = relationship(back_populates="engineer")  # noqa
+    jira_issues: Mapped[list["JiraIssue"]] = relationship(back_populates="engineer")  # noqa
+    team: Mapped["Team"] = relationship(back_populates="engineers")  # noqa

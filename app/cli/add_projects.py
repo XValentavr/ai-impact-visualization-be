@@ -9,7 +9,7 @@ from app.models import Project
 PROJECTS_CSV = settings.server.data_dir_path / "projects.csv"
 
 
-async def _add_projects()-> None:
+async def _add_projects() -> None:
     with open(PROJECTS_CSV, "r") as f:
         reader = csv.DictReader(f)
 

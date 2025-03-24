@@ -10,5 +10,5 @@ class Project(Base):
     id: Mapped[int] = mapped_column(primary_key=True)
     name: Mapped[str] = mapped_column(String(255))
 
-    jira_issues: Mapped[list["JiraIssue"]] = relationship(back_populates="project")
-    repositories: Mapped[list["Repository"]] = relationship(back_populates="project")
+    jira_issues: Mapped[list["JiraIssue"]] = relationship(back_populates="project")  # noqa
+    repositories: Mapped[list["Repository"]] = relationship(back_populates="project")  # noqa
